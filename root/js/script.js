@@ -33,6 +33,9 @@ window.onscroll = () => {
 
     header.classList.toggle('sticky', window.scrollY > 100);
 
+    /*========== scroll-to-top button ==========*/
+    let scrollTop = document.querySelector('.scroll-top');
+    scrollTop.classList.toggle('show', window.scrollY > 500);
 
     /*========== remove menu icon navbar when click navbar link (scroll) ==========*/
     menuIcon.classList.remove('bx-x');
@@ -55,6 +58,14 @@ var swiper = new Swiper(".mySwiper", {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
     },
+    autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+    },
+    effect: "fade",
+    fadeEffect: {
+        crossFade: true
+    }
 });
 
 
@@ -69,6 +80,9 @@ lightModeIcon.onclick = () => {
     // Toggle dark mode classes
     lightModeIcon.classList.toggle('bx-sun');
     body.classList.toggle('light-mode');
+
+    // Add transition effect to body
+    body.style.transition = "background-color 0.5s ease, color 0.5s ease";
 };
 
 
@@ -81,11 +95,33 @@ ScrollReveal({
 });
 
 ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
-ScrollReveal().reveal('.home-img img, .experience-container, .portfolio-box, .testimonial-wrapper, .contact form', { origin: 'bottom' });
+ScrollReveal().reveal('.home-img img, .experience-container, .portfolio-box, .testimonial-wrapper', { origin: 'bottom' });
 ScrollReveal().reveal('.home-content h1, .about-img img', { origin: 'left' });
-ScrollReveal().reveal('.home-content h3, .home-content p, .about-content', { origin: 'right' });
+ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right' });
 
+// Additional scroll reveal for social media icons with cascade effect
+const socialIcons = document.querySelectorAll('.social-media a');
+socialIcons.forEach((icon, index) => {
+    ScrollReveal().reveal(icon, {
+        origin: 'bottom',
+        distance: '20px',
+        duration: 1000,
+        delay: 200 + (index * 100)
+    });
+});
 
+// Hover effects for portfolio items
+const portfolioBoxes = document.querySelectorAll('.portfolio-box');
+portfolioBoxes.forEach(box => {
+    box.addEventListener('mouseenter', () => {
+        box.style.transform = 'translateY(-10px)';
+        box.style.transition = 'transform 0.3s ease';
+    });
+
+    box.addEventListener('mouseleave', () => {
+        box.style.transform = 'translateY(0)';
+    });
+});
 
 const expItem = document.querySelector(".experience-container");
 const popup = document.querySelector(".popup-box");
@@ -105,7 +141,7 @@ expItem.addEventListener("click", function (event) {
 
 popupCloseButton.addEventListener("click", popupBox);
 
-popup.addEventListener("click", function (evert) {
+popup.addEventListener("click", function (event) {
     if (event.target == popup) {
         popupBox();
     }
@@ -114,3 +150,114 @@ popup.addEventListener("click", function (evert) {
 function popupBox() {
     popup.classList.toggle("open");
 }
+
+/*========== particles.js ==========*/
+document.addEventListener('DOMContentLoaded', () => {
+    if (typeof particlesJS !== 'undefined') {
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#985eff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.3,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#985eff",
+                    "opacity": 0.2,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 400,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 100,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    }
+});
