@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import 'boxicons/css/boxicons.min.css';
 import './App.css';
@@ -8,16 +8,24 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './components/Home';
 
+// Lazy load the StarryBackground to improve initial page load
+const StarryBackground = lazy(() => import('./components/StarryBackground'));
+
 function App() {
   const [darkMode, setDarkMode] = useState(false);
+  const [showStars, setShowStars] = useState(false);
 
   useEffect(() => {
     const isDarkMode = localStorage.getItem('darkMode') === 'true';
     setDarkMode(isDarkMode);
     if (isDarkMode) {
       document.body.classList.add('dark-mode');
+      // Slight delay to ensure smooth transition
+      const timer = setTimeout(() => setShowStars(true), 300);
+      return () => clearTimeout(timer);
     } else {
       document.body.classList.remove('dark-mode');
+      setShowStars(false);
     }
   }, []);
 
@@ -25,16 +33,25 @@ function App() {
     const newDarkMode = !darkMode;
     setDarkMode(newDarkMode);
     localStorage.setItem('darkMode', newDarkMode);
+
     if (newDarkMode) {
       document.body.classList.add('dark-mode');
+      // Slight delay to ensure smooth transition
+      setTimeout(() => setShowStars(true), 300);
     } else {
       document.body.classList.remove('dark-mode');
+      setShowStars(false);
     }
   };
 
   return (
     <Router basename="/cv-site">
       <div className={`min-h-screen ${darkMode ? 'dark bg-gray-900 text-white' : 'bg-white text-gray-900'}`}>
+        {darkMode && showStars && (
+          <Suspense fallback={null}>
+            <StarryBackground />
+          </Suspense>
+        )}
         <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
         <main>
           <Routes>
