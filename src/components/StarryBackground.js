@@ -1,6 +1,6 @@
-import React, { useMemo, useRef, Suspense, lazy } from 'react';
+import React, { useMemo, useRef, Suspense } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { AdditiveBlending } from 'three';
+import { AdditiveBlending, NoToneMapping } from 'three';
 import useStarryBackground from '../hooks/useStarryBackground';
 
 // A simple random function that we'll use to generate stars at random positions
@@ -18,7 +18,7 @@ const StarParticle = () => {
     ], []);
 
     // Set random speed for twinkling effect
-    const speed = useMemo(() => randomInRange(0.3, 0.5), []);
+    const speed = useMemo(() => randomInRange(0.1, 0.5), []);
 
     // Animate the star's brightness using opacity
     useFrame(({ clock }) => {
@@ -30,12 +30,13 @@ const StarParticle = () => {
     });
 
     return (
-        <mesh ref={particle} position={position}>
-            <circleGeometry args={[0.05, 5]} />
+        <mesh ref={particle} position={position} renderOrder={-1}>
+            <circleGeometry args={[0.05, 32]} />
             <meshBasicMaterial
                 color="#ffffff"
                 blending={AdditiveBlending}
                 transparent={true}
+                depthWrite={false}
             />
         </mesh>
     );
@@ -88,7 +89,12 @@ const StarryBackground = () => {
                         zIndex: -1,
                         backgroundColor: 'transparent',
                     }}
-                    performance={{ min: 0.1 }} // Improve performance
+                    gl={{
+                        antialias: false,
+                        toneMapping: NoToneMapping,
+                        preserveDrawingBuffer: true
+                    }}
+                    performance={{ min: 0.1 }}
                 >
                     <Stars count={starCount} />
                 </Canvas>

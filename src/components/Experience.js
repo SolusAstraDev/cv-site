@@ -85,7 +85,7 @@ const Experience = () => {
             icon: 'bx-news',
             title: 'Tech Support',
             company: 'Gnomi Newspaper',
-            period: 'SETP 2017 - MAY 2018',
+            period: 'SEPT 2017 - MAY 2018',
             skills: [
                 {
                     title: 'Understanding of Publishing Systems',

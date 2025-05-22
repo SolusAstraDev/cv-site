@@ -36,37 +36,37 @@ const PortfolioItem = ({ image, title, description, link }) => {
 const Portfolio = () => {
     const portfolioItems = [
         {
-            image: '/images/climate.jpg',
+            image: '/images/climate.webp',
             title: 'Climate Data Visualization Tool',
             description: 'This application is a data-driven tool designed to facilitate the exploration, analysis, and visualization of complex datasets, particularly focusing on climatic data. ',
             link: 'https://github.com/AngelGketsis/Adv-topics-db-tech-app/blob/main/README.md'
         },
         {
-            image: '/images/arcade.png',
+            image: '/images/arcade.webp',
             title: 'Lydium Arcade',
             description: 'A collection of retro-style arcade games built with JavaScript.',
             link: 'https://angelgketsis.github.io/lydium-arcade/'
         },
         {
-            image: '/images/vr-img.jpg',
+            image: '/images/vr-img.webp',
             title: 'Interactive VR Focused Labyrinth Game',
             description: 'A simple interactive VR game for Android phones that utilizes basic phone sensors to get input from the player to move the character through a labyrinth, built with Unity.',
             link: 'https://github.com/AngelGketsis/Interactive-VR-Focused-Labyrinth-Game'
         },
         {
-            image: '/images/employees-leave.jpeg',
+            image: '/images/employees-leave.webp',
             title: 'Simple Leave Submission and Management System',
             description: 'A very simplistic system for a hypothetical employees to submit leave requests and for managers to either accept them or decline them.',
             link: 'https://github.com/AngelGketsis/Simple-Leave-Submission-and-Managment-for-Companies'
         },
         {
-            image: '/images/under-construction-1.jpg',
+            image: '/images/under-construction-1.webp',
             title: 'Comming Soon',
             description: 'New projects will be added soon!',
             link: '#'
         },
         {
-            image: '/images/under-construction-1.jpg',
+            image: '/images/under-construction-1.webp',
             title: 'Comming Soon',
             description: 'New projects will be added soon!',
             link: '#'
