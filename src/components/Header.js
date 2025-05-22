@@ -20,6 +20,15 @@ const Header = ({ darkMode, toggleDarkMode }) => {
         setMenuOpen(false);
     };
 
+    const handleLogoClick = (e) => {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+        setActiveSection('home');
+    };
+
     useEffect(() => {
         const handleScroll = () => {
             const sections = ['home', 'about', 'experience', 'portfolio'];
@@ -47,7 +56,11 @@ const Header = ({ darkMode, toggleDarkMode }) => {
             <div className="container mx-auto px-4 py-4">
                 <div className="flex items-center justify-between">
                     {/* Logo */}
-                    <Link to="/" className="text-2xl font-bold text-purple-600 dark:text-purple-400">
+                    <Link
+                        to="/"
+                        onClick={handleLogoClick}
+                        className="text-2xl font-bold text-purple-600 dark:text-purple-400"
+                    >
                         Solus
                     </Link>
 
