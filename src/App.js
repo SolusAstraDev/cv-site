@@ -33,7 +33,7 @@ function App() {
   };
 
   return (
-    <Router>
+    <Router basename="/cv-site">
       <div className={`min-h-screen ${darkMode ? 'dark bg-gray-900 text-white' : 'bg-white text-gray-900'}`}>
         <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
         <main>
