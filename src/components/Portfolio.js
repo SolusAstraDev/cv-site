@@ -9,7 +9,7 @@ const PortfolioItem = ({ image, title, description, link }) => {
     return (
         <div className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg">
             <img
-                src={image}
+                src={`${process.env.PUBLIC_URL}${image}`}
                 alt={title}
                 className="w-full h-48 object-cover"
             />
