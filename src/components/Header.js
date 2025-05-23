@@ -67,7 +67,7 @@ const Header = ({ darkMode, toggleDarkMode }) => {
                     <div className="flex items-center gap-4">
                         {/* Desktop Navigation */}
                         <nav className="hidden md:flex items-center gap-4">
-                            {['Home', 'About', 'Experience', 'Portfolio'].map((section) => (
+                            {['Home', 'About', 'Experience', 'Presentations', 'Portfolio'].map((section) => (
                                 <button
                                     key={section}
                                     onClick={() => scrollToSection(section.toLowerCase())}

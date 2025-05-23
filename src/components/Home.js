@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import About from './About';
 import Experience from './Experience';
 import Portfolio from './Portfolio';
-
+import Presentations from './Presentations';
 const Home = () => {
     const [showScrollTop, setShowScrollTop] = useState(false);
 
@@ -98,6 +98,10 @@ const Home = () => {
 
             <section id="experience">
                 <Experience />
+            </section>
+
+            <section id="presentations">
+                <Presentations />
             </section>
 
             <section id="portfolio">
