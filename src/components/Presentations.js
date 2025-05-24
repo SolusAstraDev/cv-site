@@ -15,7 +15,7 @@ const Presentations = () => {
                                     <span className="text-sm text-gray-500 dark:text-gray-400">FEB 2018</span>
                                 </div>
                                 <p className="text-gray-600 dark:text-gray-400">
-                                    Guest of MEP Stelios Kouloglou at Brussels (<a href="https://fb.watch/c1cmADOmhc/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">Watch here</a>)
+                                    Guest of MEP Stelios Kouloglou at Brussels (<a href="https://fb.watch/c1cmADOmhc/" target="_blank" rel="noopener noreferrer" className="text-purple-600 dark:text-purple-400 hover:underline">Watch here</a>)
                                 </p>
                             </li>
 
@@ -25,7 +25,7 @@ const Presentations = () => {
                                     <span className="text-sm text-gray-500 dark:text-gray-400">MAY 2017</span>
                                 </div>
                                 <p className="text-gray-600 dark:text-gray-400">
-                                    A talk about innovation and creativity and the importance of inspiring to create. (<a href="https://youtu.be/iQMLE2c9aNY" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">Watch here</a>)
+                                    A talk about innovation and creativity and the importance of inspiring to create. (<a href="https://youtu.be/iQMLE2c9aNY" target="_blank" rel="noopener noreferrer" className="text-purple-600 dark:text-purple-400 hover:underline">Watch here</a>)
                                 </p>
                             </li>
 
@@ -55,7 +55,7 @@ const Presentations = () => {
                                     <span className="text-sm text-gray-500 dark:text-gray-400">NOV 2014</span>
                                 </div>
                                 <p className="text-gray-600 dark:text-gray-400">
-                                    A presentation of Portable Evasive Assistance (<a href="https://youtu.be/L_O3AF1Bkms" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">Watch here</a>)
+                                    A presentation of Portable Evasive Assistance (<a href="https://youtu.be/L_O3AF1Bkms" target="_blank" rel="noopener noreferrer" className="text-purple-600 dark:text-purple-400 hover:underline">Watch here</a>)
                                 </p>
                             </li>
                         </ul>

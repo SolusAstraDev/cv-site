@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useSounds } from '../context/SoundContext';
+import SoundButton from './SoundButton';
 
 const Header = ({ darkMode, toggleDarkMode }) => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [activeSection, setActiveSection] = useState('home');
     const location = useLocation();
+    const { playClick } = useSounds();
 
     const scrollToSection = (sectionId) => {
         const element = document.getElementById(sectionId);
@@ -27,6 +30,11 @@ const Header = ({ darkMode, toggleDarkMode }) => {
             behavior: 'smooth'
         });
         setActiveSection('home');
+    };
+
+    const handleDarkModeToggle = () => {
+        playClick();
+        toggleDarkMode();
     };
 
     useEffect(() => {
@@ -68,37 +76,38 @@ const Header = ({ darkMode, toggleDarkMode }) => {
                         {/* Desktop Navigation */}
                         <nav className="hidden md:flex items-center gap-4">
                             {['Home', 'About', 'Experience', 'Presentations', 'Portfolio'].map((section) => (
-                                <button
+                                <SoundButton
                                     key={section}
                                     onClick={() => scrollToSection(section.toLowerCase())}
                                     className={`px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors ${activeSection === section.toLowerCase() ? 'text-fuchsia-900 dark:text-fuchsia-200 font-medium' : ''
                                         }`}
                                 >
                                     {section}
-                                </button>
+                                </SoundButton>
                             ))}
                         </nav>
-                        {/* Dark Mode Toggle */}
-                        <button
+
+                        {/* Dark Mode Toggle using SoundButton */}
+                        <SoundButton
                             onClick={toggleDarkMode}
-                            className="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                            className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
                             aria-label="Toggle dark mode"
+                            clickVolume={0.4}
+                            hoverVolume={0.2}
                         >
-                            {darkMode ? (
-                                <i className="bx bx-sun text-2xl"></i>
-                            ) : (
-                                <i className="bx bx-moon text-2xl"></i>
-                            )}
-                        </button>
+                            <i className={`bx ${darkMode ? 'bx-sun text-yellow-400' : 'bx-moon text-gray-600'} text-xl`}></i>
+                        </SoundButton>
 
                         {/* Mobile Menu Button */}
-                        <button
+                        <SoundButton
                             className="md:hidden p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800"
                             onClick={() => setMenuOpen(!menuOpen)}
                             aria-label="Toggle menu"
+                            clickVolume={0.4}
+                            hoverVolume={0.2}
                         >
                             <i className={`bx ${menuOpen ? 'bx-x' : 'bx-menu'} text-2xl`}></i>
-                        </button>
+                        </SoundButton>
                     </div>
                 </div>
 

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import SoundModal from './SoundModal';
 
 
 const Experience = () => {
@@ -258,7 +259,7 @@ const Experience = () => {
                     </button>
                 </div>
 
-                <Modal
+                <SoundModal
                     isOpen={showModal}
                     onClose={() => setShowModal(false)}
                     title={`${title} at ${company}`}
@@ -470,7 +471,7 @@ const Experience = () => {
                     ))}
                 </div>
 
-                <Modal
+                <SoundModal
                     isOpen={modalContent.isOpen}
                     onClose={() => setModalContent({ ...modalContent, isOpen: false })}
                     title={modalContent.title}

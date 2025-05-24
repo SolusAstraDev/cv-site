@@ -7,6 +7,7 @@ import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './components/Home';
+import { SoundProvider } from './context/SoundContext';
 
 // Lazy load the StarryBackground to improve initial page load
 const StarryBackground = lazy(() => import('./components/StarryBackground'));
@@ -45,26 +46,28 @@ function App() {
   };
 
   return (
-    <Router basename="/cv-site">
-      <div className={`min-h-screen ${darkMode ? 'dark bg-gray-900 text-white' : 'bg-white text-gray-900'}`}>
-        {darkMode && showStars && (
-          <Suspense fallback={null}>
-            <StarryBackground />
-          </Suspense>
-        )}
-        <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
-        </main>
-        <Footer />
-        <div className="bg-element" style={{ left: '10%', top: '20%' }} />
-        <div className="bg-element" style={{ left: '60%', top: '40%' }} />
-        <div className="bg-element" style={{ left: '80%', top: '60%' }} />
-      </div>
-    </Router>
+    <SoundProvider>
+      <Router basename="/cv-site">
+        <div className={`min-h-screen ${darkMode ? 'dark bg-gray-900 text-white' : 'bg-white text-gray-900'}`}>
+          {darkMode && showStars && (
+            <Suspense fallback={null}>
+              <StarryBackground />
+            </Suspense>
+          )}
+          <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+          <main>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+          </main>
+          <Footer />
+          <div className="bg-element" style={{ left: '10%', top: '20%' }} />
+          <div className="bg-element" style={{ left: '60%', top: '40%' }} />
+          <div className="bg-element" style={{ left: '80%', top: '60%' }} />
+        </div>
+      </Router>
+    </SoundProvider>
   );
 }
 
