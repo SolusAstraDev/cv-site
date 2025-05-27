@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 const D20Dice = () => {
     const [result, setResult] = useState(null);
     const [isRolling, setIsRolling] = useState(false);
+    const [rollCompleted, setRollCompleted] = useState(false);
 
     // Easter egg messages for special numbers
     const getSpecialMessage = (num) => {
@@ -50,7 +51,7 @@ const D20Dice = () => {
 
     const rollDice = () => {
         setIsRolling(true);
-        // Simulate dice roll animation
+        setRollCompleted(false);
         const rolls = 5; // Number of intermediate rolls for animation
         let currentRoll = 0;
 
@@ -70,11 +71,12 @@ const D20Dice = () => {
             if (currentRoll >= rolls) {
                 clearInterval(rollInterval);
                 setIsRolling(false);
+                setRollCompleted(true);
             }
         }, 150);
     };
 
-    const specialResult = result ? getSpecialMessage(result) : null;
+    const specialResult = rollCompleted ? getSpecialMessage(result) : null;
     const resultClass = specialResult?.class || '';
 
     return (
@@ -143,7 +145,7 @@ const D20Dice = () => {
                     </div>
                 </div>
             </button>
-            {result && (
+            {rollCompleted && result && (
                 <div className="mt-3 text-center">
                     <div className={`text-sm font-medium ${specialResult?.class || ''}`}>
                         {specialResult?.message || 'Roll'}
