@@ -57,7 +57,7 @@ const Home = () => {
                             </div>
 
                             <a
-                                href="/Resume.pdf"
+                                href={`${process.env.PUBLIC_URL}/Resume.pdf`}
                                 download="resume-Angelos-Gketsis.pdf"
                                 className="inline-block px-6 py-3 bg-purple-600 hover:bg-purple-700 dark:bg-purple-500 dark:hover:bg-purple-600 text-white font-medium rounded-md transition-colors"
                             >
@@ -65,24 +65,24 @@ const Home = () => {
                             </a>
                         </div>
 
-                        <div className="md:w-1/2 relative">
-                            <div className="absolute inset-0 flex flex-wrap justify-around items-center">
-                                <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg mb-4 transform rotate-3 hover:rotate-0 transition-transform">
+                        <div className="md:w-1/2">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4">
+                                <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg transform hover:scale-105 transition-transform">
                                     <i className="bx bx-code-block text-3xl text-blue-600 dark:text-blue-400 mb-1"></i>
                                     <h3 className="font-medium">Software Developer</h3>
                                 </div>
 
-                                <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg mb-4 transform -rotate-3 hover:rotate-0 transition-transform">
+                                <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg transform hover:scale-105 transition-transform">
                                     <i className="bx bx-game text-3xl text-green-600 dark:text-green-400 mb-1"></i>
                                     <h3 className="font-medium">Game Designer</h3>
                                 </div>
 
-                                <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg mb-4 transform rotate-6 hover:rotate-0 transition-transform">
+                                <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg transform hover:scale-105 transition-transform">
                                     <i className="bx bx-video-recording text-3xl text-red-600 dark:text-red-400 mb-1"></i>
                                     <h3 className="font-medium">Drone Enthusiast</h3>
                                 </div>
 
-                                <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg mb-4 transform -rotate-6 hover:rotate-0 transition-transform">
+                                <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg transform hover:scale-105 transition-transform">
                                     <i className="bx bx-book-bookmark text-3xl text-purple-600 dark:text-purple-400 mb-1"></i>
                                     <h3 className="font-medium">DnD Game Master</h3>
                                 </div>
