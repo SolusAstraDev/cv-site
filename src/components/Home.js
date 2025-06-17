@@ -37,7 +37,7 @@ const Home = () => {
 
                             <div className="flex gap-4 mb-8">
                                 <a
-                                    href="https://github.com/AngelGketsis"
+                                    href="https://github.com/SolusAstraDev"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="text-2xl hover:text-purple-300 dark:hover:text-purple-500 transition-colors"
