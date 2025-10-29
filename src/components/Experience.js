@@ -10,7 +10,7 @@ const Experience = () => {
             icon: 'bx-code-alt',
             title: 'Junior SAP Developer',
             company: 'Deloitte',
-            period: 'JUNE 2023 - Present',
+            period: 'JUNE 2023 - OCTOBER 2025',
             skills: [
                 {
                     title: 'SAP ERP Knowledge',
