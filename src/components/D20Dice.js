@@ -9,41 +9,23 @@ const D20Dice = () => {
     const getSpecialMessage = (num) => {
         switch (num) {
             case 11:
-                return {
-                    message: "Geronimo!",
-                    class: "text-blue-500 dark:text-blue-400",
-                    subtext: "— Eleventh Doctor"
-                };
+                return { message: "Geronimo!", class: "text-blue-500 dark:text-blue-400", subtext: "— Eleventh Doctor" };
             case 13:
-                return {
-                    message: "Brilliant!",
-                    class: "text-yellow-500 dark:text-yellow-400",
-                    subtext: "— Thirteenth Doctor"
-                };
+                return { message: "Brilliant!", class: "text-yellow-500 dark:text-yellow-400", subtext: "— Thirteenth Doctor" };
             case 47:
-                return {
-                    message: "Resistance is futile!",
-                    class: "text-red-500 dark:text-red-400",
-                    subtext: "— The Borg"
-                };
+                return { message: "Resistance is futile!", class: "text-red-500 dark:text-red-400", subtext: "— The Borg" };
             case 1701:
-                return {
-                    message: "To boldly roll!",
-                    class: "text-blue-400 dark:text-blue-300",
-                    subtext: "— USS Enterprise"
-                };
+                return { message: "To boldly roll!", class: "text-blue-400 dark:text-blue-300", subtext: "— USS Enterprise" };
+            case 42:
+                return { message: "The answer to everything.", class: "text-emerald-500 dark:text-emerald-400", subtext: "— Hitchhiker's Guide" };
+            case 1138:
+                return { message: "THX 1138.", class: "text-amber-500 dark:text-amber-400", subtext: "— Lucasfilm" };
+            case 451:
+                return { message: "System Shock.", class: "text-pink-500 dark:text-pink-400", subtext: "— 0451" };
             case 20:
-                return {
-                    message: "Critical Hit!",
-                    class: "text-green-500 dark:text-green-400",
-                    subtext: "Natural 20"
-                };
+                return { message: "Critical Hit!", class: "text-green-500 dark:text-green-400", subtext: "Natural 20" };
             case 1:
-                return {
-                    message: "Critical Miss!",
-                    class: "text-red-500 dark:text-red-400",
-                    subtext: "Natural 1"
-                };
+                return { message: "Critical Miss!", class: "text-red-500 dark:text-red-400", subtext: "Natural 1" };
             default:
                 return null;
         }
@@ -57,10 +39,10 @@ const D20Dice = () => {
 
         const rollInterval = setInterval(() => {
             // Add easter egg numbers to the possible results
-            const specialRoll = Math.random() < 0.1; // 10% chance for easter egg
+            const specialRoll = Math.random() < 0.12; // 12% chance for easter egg
             let roll;
             if (specialRoll) {
-                const easterEggs = [11, 13, 47, 1701];
+                const easterEggs = [11, 13, 42, 47, 451, 1138, 1701];
                 roll = easterEggs[Math.floor(Math.random() * easterEggs.length)];
             } else {
                 roll = Math.floor(Math.random() * 20) + 1;
@@ -82,6 +64,7 @@ const D20Dice = () => {
     return (
         <div className="inline-block">
             <button
+                data-d20-trigger
                 onClick={rollDice}
                 disabled={isRolling}
                 className={`

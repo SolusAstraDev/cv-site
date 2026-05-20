@@ -1,9 +1,14 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import { useSounds } from '../context/SoundContext';
 
 const SoundModal = ({ isOpen, onClose, title, content }) => {
     const { playOpen, playClose } = useSounds();
     const modalRef = useRef(null);
+
+    const handleClose = useCallback(() => {
+        playClose();
+        onClose();
+    }, [playClose, onClose]);
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -30,26 +35,21 @@ const SoundModal = ({ isOpen, onClose, title, content }) => {
             document.removeEventListener('keydown', handleEscapeKey);
             document.body.style.overflow = 'unset';
         };
-    }, [isOpen, playOpen]);
-
-    const handleClose = () => {
-        playClose();
-        onClose();
-    };
+    }, [isOpen, playOpen, handleClose]);
 
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
             <div
                 ref={modalRef}
-                className="bg-white dark:bg-gray-800 rounded-lg w-full max-w-4xl max-h-[90vh] overflow-y-auto animate-modal-enter"
+                className="bg-[var(--bg-elev)] border border-[var(--border)] text-[var(--text)] rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto animate-modal-enter shadow-[var(--shadow)]"
             >
-                <div className="sticky top-0 bg-white dark:bg-gray-800 p-6 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
-                    <h2 className="text-2xl font-bold">{title}</h2>
+                <div className="sticky top-0 bg-[var(--bg-elev)]/95 backdrop-blur p-6 border-b border-[var(--border)] flex justify-between items-center">
+                    <h2 className="font-display text-2xl font-bold">{title}</h2>
                     <button
                         onClick={handleClose}
-                        className="w-8 h-8 flex items-center justify-center rounded-lg text-gray-400 dark:text-gray-500 opacity-75"
+                        className="w-9 h-9 flex items-center justify-center rounded-full text-[var(--text-muted)] hover:text-[var(--accent)] hover:bg-[var(--accent)]/10 transition-colors"
                         aria-label="Close modal"
                     >
                         <i className='bx bx-x text-xl'></i>
