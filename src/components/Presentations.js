@@ -4,7 +4,7 @@ const Presentations = () => {
     return (
         <section className="pt-16 pb-16 px-4">
             <div className="container mx-auto">
-                <div className="grid md:grid-cols-2 gap-8">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div>
                         <h2 className="text-2xl font-bold mb-6 text-purple-600 dark:text-purple-400">Presentations</h2>
 
@@ -92,6 +92,21 @@ const Presentations = () => {
                                 </div>
                                 <p className="text-gray-600 dark:text-gray-400">
                                     Local Award for the idea and prototype of the device P.E.Ace (Portable Evasive Assistance).
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h2 className="text-2xl font-bold mb-6 text-purple-600 dark:text-purple-400">Certifications</h2>
+
+                        <ul className="space-y-6">
+                            <li className="bg-white dark:bg-gray-800 p-5 rounded-lg shadow-md">
+                                <div className="flex justify-between items-start mb-2">
+                                    <strong className="text-lg font-medium">Full-Stack Developer</strong>
+                                </div>
+                                <p className="text-gray-600 dark:text-gray-400">
+                                    Professional certification from Codecademy covering full-stack web development with JavaScript, React, Node.js, and related technologies.
                                 </p>
                             </li>
                         </ul>
