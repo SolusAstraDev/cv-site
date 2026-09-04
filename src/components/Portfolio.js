@@ -9,6 +9,15 @@ import FadeContent from './reactbits/FadeContent';
 
 const portfolioItems = [
     {
+        id: 'stargazer',
+        image: '/images/stargazer.png',
+        title: 'Stargazer',
+        description:
+            'Pick a place on the map — Stargazer finds the upcoming night with the least moonlight, then lists planets and constellations you can actually see from there.',
+        link: 'https://github.com/SolusAstraDev/Stargazer',
+        tags: ['React', 'Astronomy', 'Maps'],
+    },
+    {
         id: 'climate',
         image: '/images/climate.webp',
         title: 'Climate Data Visualization Tool',
@@ -45,14 +54,6 @@ const portfolioItems = [
     },
     {
         id: 'soon-1',
-        image: '/images/under-construction-1.webp',
-        title: 'Coming Soon',
-        description: 'New projects will be added soon.',
-        link: '#',
-        comingSoon: true,
-    },
-    {
-        id: 'soon-2',
         image: '/images/under-construction-1.webp',
         title: 'Coming Soon',
         description: 'Stay tuned — building something legendary.',
